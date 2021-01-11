@@ -1,0 +1,18 @@
+# This is a basic workflow to connect remotely to a machine via ssh and pull the changes
+name: remote ssh command
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EASY_SERVER_HOST }}
+        username: ${{ secrets.EASY_SERVER_USR }}
+        password: ${{ secrets.EASY_SERVER_PWD }}
+        script: |
+          cd  /var/www/ci_test/${{ github.event.repository.name }}
+          ls -l
