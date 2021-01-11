@@ -11,7 +11,7 @@ jobs:
       uses: appleboy/ssh-action@master
       env:
         REPO_PATH: "/var/www/ci_test"
-        REPO_NAME: ${{ github.event.repository.name }} 
+        REPO_NAME: ${{ github.repository.name }} 
       with:
         host: ${{ secrets.EASY_SERVER_HOST }}
         username: ${{ secrets.EASY_SERVER_USR }}
