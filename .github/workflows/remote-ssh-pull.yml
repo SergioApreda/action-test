@@ -1,17 +1,21 @@
 # This is a basic workflow to connect remotely to a machine via ssh and pull the changes
-name: remote ssh command
+name: remote ssh git pull
 on: [push]
 jobs:
 
   build:
-    name: Build
+    name: connect and pull
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh pull
       uses: appleboy/ssh-action@master
+      env:
+        REPO_PATH: ${{ secrets.EASY_SERVER_PATH }}
       with:
         host: ${{ secrets.EASY_SERVER_HOST }}
         username: ${{ secrets.EASY_SERVER_USR }}
         password: ${{ secrets.EASY_SERVER_PWD }}
+        envs: REPO_PATH
         script: |
+          echo "this is $REPO_PATH"
           ls -l
