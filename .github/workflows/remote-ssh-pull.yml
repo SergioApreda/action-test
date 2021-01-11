@@ -11,12 +11,12 @@ jobs:
       uses: appleboy/ssh-action@master
       env:
         REPO_PATH: "/var/www/ci_test"
-        REPO_NAME: ${{ github.repository.name }} 
+        REPO_NAME: ${{ github.repository }} 
       with:
         host: ${{ secrets.EASY_SERVER_HOST }}
         username: ${{ secrets.EASY_SERVER_USR }}
         password: ${{ secrets.EASY_SERVER_PWD }}
-        envs: REPO_PATH
+        envs: REPO_PATH, REPO_NAME
         script: |
           echo "switching to $REPO_PATH/$REPO_NAME"
           echo "ADDIO PIERO"
