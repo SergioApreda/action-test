@@ -18,7 +18,5 @@ jobs:
         password: ${{ secrets.EASY_SERVER_PWD }}
         envs: REPO_PATH, REPO_NAME
         script: |
-          echo "switching to $REPO_PATH/$REPO_NAME"
-          echo "ADDIO PIERO"
           cd "$REPO_PATH/$REPO_NAME"
-          ls -l
+          git pull
