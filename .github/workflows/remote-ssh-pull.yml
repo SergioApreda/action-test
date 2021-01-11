@@ -9,12 +9,9 @@ jobs:
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
-      env:
-        PATH: ${{ secrets.EASY_SERVER_PATH}}
       with:
         host: ${{ secrets.EASY_SERVER_HOST }}
         username: ${{ secrets.EASY_SERVER_USR }}
         password: ${{ secrets.EASY_SERVER_PWD }}
-        envs: $PATH
         script: |
           ls -l
