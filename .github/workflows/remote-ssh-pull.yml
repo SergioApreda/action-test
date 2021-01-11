@@ -14,5 +14,5 @@ jobs:
         username: ${{ secrets.EASY_SERVER_USR }}
         password: ${{ secrets.EASY_SERVER_PWD }}
         script: |
-          cd  ${{ secrets.EASY_SERVER_path }}/${{ github.event.repository.name }}
-          git pull
+          cd  /var/www/ci_test/${{ github.event.repository.name }}
+          ls -l
