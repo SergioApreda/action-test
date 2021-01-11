@@ -15,7 +15,9 @@ jobs:
         host: ${{ secrets.EASY_SERVER_HOST }}
         username: ${{ secrets.EASY_SERVER_USR }}
         password: ${{ secrets.EASY_SERVER_PWD }}
+        envs: $PATH
         script: |
-          echo $path
+          echo ${{secrets.EASY_SERVER_PATH}}
+          echo $PATH
           cd  /var/www/ci_test/${{ github.event.repository.name }}
           ls -l
