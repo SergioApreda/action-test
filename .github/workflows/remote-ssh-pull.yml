@@ -19,5 +19,6 @@ jobs:
         envs: REPO_PATH
         script: |
           echo "switching to $REPO_PATH/$REPO_NAME"
+          echo "ADDIO PIERO"
           cd "$REPO_PATH/$REPO_NAME"
           ls -l
