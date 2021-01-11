@@ -10,12 +10,14 @@ jobs:
     - name: executing remote ssh pull
       uses: appleboy/ssh-action@master
       env:
-        REPO_PATH: ${{ secrets.EASY_SERVER_PATH }}
+        REPO_PATH: "/var/www/ci_test"
+        REPO_NAME: ${{ github.event.repository.name }} 
       with:
         host: ${{ secrets.EASY_SERVER_HOST }}
         username: ${{ secrets.EASY_SERVER_USR }}
         password: ${{ secrets.EASY_SERVER_PWD }}
         envs: REPO_PATH
         script: |
-          echo "this is $REPO_PATH"
+          
+          cd "$REPO_PATH/$REPO_NAME"
           ls -l
