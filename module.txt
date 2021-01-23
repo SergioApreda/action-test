@@ -1,1 +1,4 @@
-This is a great module that tries support the awesome new feature!
+
+This is a great module that tries to support the awesome new feature!
+
+and this line is for adding yet more functionality
